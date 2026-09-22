@@ -1,0 +1,12 @@
+{
+  "schema_version": 2,
+  "name": "universal-openai-compatible-image",
+  "label": "通用 OpenAI 兼容图片",
+  "version": "1.0.0",
+  "kind": "script",
+  "entry": "plugin.py",
+  "generation_types": [
+    "image"
+  ],
+  "timeout": 300
+}

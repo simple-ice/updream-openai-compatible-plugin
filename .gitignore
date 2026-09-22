@@ -1,0 +1,22 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Packaged plugin artifacts (distributed via GitHub Releases, not the repo)
+*.updplugin
+
+# Secrets — never commit real keys
+.env
+.env.*
+secrets*.txt
+*secret*.json
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
