@@ -41,7 +41,7 @@ def generate_image(params):
         return _fail('未填写 API-Key')
 
     base_url = (cfg.get('base_url') or 'https://api.openai.com/v1').strip().rstrip('/')
-    model = (params.get('endpoint_id') or params.get('model') or extra.get('default_model') or 'gpt-image-1').strip()
+    model = (params.get('endpoint_id') or params.get('model') or extra.get('default_model') or 'gpt-image-2').strip()
     prompt = (params.get('prompt') or '').strip()
     if not prompt:
         return _fail('Prompt 不能为空')
@@ -58,10 +58,9 @@ def generate_image(params):
     n = 1 if n < 1 else (4 if n > 4 else n)
 
     quality = extra.get('quality')
-    style = extra.get('style')
     background = extra.get('background')
     moderation = extra.get('moderation')
-    output_format = (extra.get('output_format') or 'b64_json').strip()
+    output_format = (extra.get('output_format') or 'url').strip()
     endpoint_path = (extra.get('endpoint_path') or '/images/generations').strip()
     if not endpoint_path.startswith('/'):
         endpoint_path = '/' + endpoint_path
@@ -76,8 +75,6 @@ def generate_image(params):
         body['response_format'] = output_format
     if quality:
         body['quality'] = quality
-    if style:
-        body['style'] = style
     if background:
         body['background'] = background
     if moderation:
